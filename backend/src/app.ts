@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
+import cors from "cors";
 import { AccountRepository } from "./repositories/account.repository";
 import { AccountService } from "./services/account.service";
 import { AccountController } from "./controllers/account.controller";
@@ -13,6 +14,7 @@ const controller = new AccountController(service);
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 // Rotas
